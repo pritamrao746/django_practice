@@ -1,0 +1,1 @@
+Integrating Dashboard with chart.js and ML in Django
