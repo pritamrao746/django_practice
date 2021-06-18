@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Clubs Ranking{% endblock title %}
+
+{% block scripts %} 
+<a href=" {% url 'clubs' %} "> Click Here </a>
+<script>
+$(document).ready(function(){
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Scatter Dataset',
+            data: [{
+            x: {{ query_set.2.money }},
+            y: 0
+            }, {
+            x: 0,
+            y: 10
+            }, {
+            x: 10,
+            y: 5
+            }, {
+            x: 0.5,
+            y: 5.5
+            }],
+            backgroundColor: 'rgb(255, 99, 132)'
+        }],
+    },
+    options: {
+        
+        scales: {
+        x: {
+        type: 'linear',
+        position: 'bottom'
+      }
+    }
+    }
+                
+});
+
+});
+</script>
+
+{% endblock scripts %}
+
+{% block content %} 
+
+    <div class="chart-container" style="position: relative; height:40vh; width:60vw">
+    <canvas id="myChart"></canvas>
+    </div>
+    
+
+{% endblock content %}
+
